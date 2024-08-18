@@ -3,6 +3,7 @@
 #include "utils/resource.h"
 #include "utils/WindowsThrowMacros.h"
 #include "utils/WindowsMessageMap.h"
+#include "imgui/imgui_impl_win32.h"
 
 // Window Class Stuff
 Window::WindowClass Window::WindowClass::wndClass;
