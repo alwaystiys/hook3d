@@ -1,0 +1,7 @@
+#Directories
+.vs/
+.obj/
+x64/
+
+#Files
+*.user

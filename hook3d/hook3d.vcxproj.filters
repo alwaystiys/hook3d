@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\WinMain.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\base\Window.cpp">
+      <Filter>src\base</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\WindowsMessageMap.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\HookException.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\Keyboard.cpp">
+      <Filter>src\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\Mouse.cpp">
+      <Filter>src\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\App.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\base\Window.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\resource.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\SdkConfig.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\WindowsMessageMap.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\WindowsThrowMacros.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\HookException.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\Keyboard.h">
+      <Filter>src\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\Mouse.h">
+      <Filter>src\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\App.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{0c350f31-7803-4d65-8dae-1a53d7cddb3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\base">
+      <UniqueIdentifier>{f6f2e6cb-358f-44c3-8797-a7a79fa13e06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{85c3f676-f4a2-425b-8441-ada5f4e12a4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\input">
+      <UniqueIdentifier>{9e3e3aa8-3eee-4a72-afd9-fe27f96c0550}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
