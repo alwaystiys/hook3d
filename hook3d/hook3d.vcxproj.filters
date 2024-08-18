@@ -22,6 +22,9 @@
     <ClCompile Include="src\App.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\base\HookTimer.cpp">
+      <Filter>src\base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\base\Window.h">
@@ -50,6 +53,9 @@
     </ClInclude>
     <ClInclude Include="src\App.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\base\HookTimer.h">
+      <Filter>src\base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

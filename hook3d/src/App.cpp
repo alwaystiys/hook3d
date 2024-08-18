@@ -8,19 +8,24 @@ App::App() : wnd(800, 600, TEXT("Hook 3D"))
 int App::Loop() {
 	MSG msg;
 	BOOL gResult;
-	while ((gResult = GetMessage(&msg, nullptr, 0, 0)) > 0)
+	while (true)
 	{
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
-
-		if (wnd.kbd.KeyIsPressed(VK_SPACE)) {
-			MessageBoxA(nullptr, "just for test kbd", "title", 0);
-		}
-		if (wnd.kbd.KeyIsPressed(VK_MENU)) {
-			MessageBoxA(nullptr, "just for test kbd", "title", 0);
+		if (const auto ecode = Window::ProcessMessages()) {
+			return *ecode;
 		}
 
-		static int i = 0;
+		DoFrame();
+		//TranslateMessage(&msg);
+		//DispatchMessage(&msg);
+
+		//if (wnd.kbd.KeyIsPressed(VK_SPACE)) {
+		//	MessageBoxA(nullptr, "just for test kbd", "title", 0);
+		//}
+		//if (wnd.kbd.KeyIsPressed(VK_MENU)) {
+		//	MessageBoxA(nullptr, "just for test kbd", "title", 0);
+		//}
+
+		/*static int i = 0;
 		while (!wnd.mouse.IsEmpty()) {
 			const auto e = wnd.mouse.Read();
 			if (e.has_value()) {
@@ -51,7 +56,7 @@ int App::Loop() {
 				}
 				}
 			}
-		}
+		}*/
 
 	}
 	if (gResult == -1) {
@@ -62,7 +67,12 @@ int App::Loop() {
 	}
 }
 
-void App::DoFrame() {
+void App::DoFrame()
+{
+	const float t = timer.Peek();
+	std::ostringstream oss;
+	oss << "Time test" << std::setprecision(1) << std::fixed << t;
+	wnd.SetTitle(oss.str());
 
 }
 

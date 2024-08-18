@@ -114,6 +114,10 @@ int WINAPI WinMain(
 	//else {
 	//	return msg.wParam;
 	//}
+	// 
+	// 
+	// 
+	// 
 	//Window app(880, 480, TEXT("Hook 3D"));
 	//MSG msg;
 	//BOOL gResult;
