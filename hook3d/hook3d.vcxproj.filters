@@ -111,6 +111,9 @@
     <ClInclude Include="src\base\Graphics.h">
       <Filter>src\base</Filter>
     </ClInclude>
+    <ClInclude Include="src\utils\WrhConfig.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

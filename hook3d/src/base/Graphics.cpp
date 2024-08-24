@@ -22,11 +22,11 @@ Graphics::Graphics(HWND hWnd, int width, int height) : width(width), height(heig
 	sd.Flags = 0;
 
 	// create device and front/back buffers, and swap chain and rendering context
-	D3D11CreateDeviceAndSwapChain(
+	HRESULT hr = D3D11CreateDeviceAndSwapChain(
 		nullptr,
 		D3D_DRIVER_TYPE_HARDWARE,
 		nullptr,
-		0,
+		0 | D3D11_CREATE_DEVICE_DEBUG,
 		nullptr,
 		0,
 		D3D11_SDK_VERSION,
@@ -37,34 +37,47 @@ Graphics::Graphics(HWND hWnd, int width, int height) : width(width), height(heig
 		&pContext
 	);
 
+	//if (FAILED(hr)) {
+	//	return;
+	//}
+
 	// gain access to texture subresource in swap chain(back buffer)
-	ID3D11Resource* pBackBuff = nullptr;
-	pSwap->GetBuffer(0, __uuidof(ID3D11Resource), reinterpret_cast<void**>(&pBackBuff));
-	pDevice->CreateRenderTargetView(
-		pBackBuff,
+	//ID3D11Resource* pBackBuff = nullptr;
+	//pSwap->GetBuffer(0, __uuidof(ID3D11Resource), reinterpret_cast<void**>(&pBackBuff));
+	//hr = pDevice->CreateRenderTargetView(
+	//	pBackBuff,
+	//	nullptr,
+	//	&pTarget
+	//);
+	//pBackBuff->Release();
+	ComPtr<ID3D11Resource> pBackBuff;
+	pSwap->GetBuffer(0, __uuidof(ID3D11Resource), &pBackBuff);
+	hr = pDevice->CreateRenderTargetView(
+		pBackBuff.Get(),
 		nullptr,
 		&pTarget
 	);
-	pBackBuff->Release();
-	
 
+	//if (FAILED(hr)) {
+	//	return;
+	//}
 }
 
-Graphics::~Graphics()
-{
-	if (pTarget != nullptr) {
-		pTarget->Release();
-	}
-	if (pContext != nullptr) {
-		pContext->Release();
-	}
-	if (pSwap != nullptr) {
-		pSwap->Release();
-	}
-	if (pDevice != nullptr) {
-		pDevice->Release();
-	}
-}
+//Graphics::~Graphics()
+//{
+	//if (pTarget != nullptr) {
+	//	pTarget->Release();
+	//}
+	//if (pContext != nullptr) {
+	//	pContext->Release();
+	//}
+	//if (pSwap != nullptr) {
+	//	pSwap->Release();
+	//}
+	//if (pDevice != nullptr) {
+	//	pDevice->Release();
+	//}
+//}
 
 void Graphics::EndFrame()
 {

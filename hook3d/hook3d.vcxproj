@@ -48,6 +48,7 @@
     <ClInclude Include="src\utils\SdkConfig.h" />
     <ClInclude Include="src\utils\WindowsMessageMap.h" />
     <ClInclude Include="src\utils\WindowsThrowMacros.h" />
+    <ClInclude Include="src\utils\WrhConfig.h" />
     <ClInclude Include="thirdparty\imgui\imconfig.h" />
     <ClInclude Include="thirdparty\imgui\imgui.h" />
     <ClInclude Include="thirdparty\imgui\imguiThemes.h" />
