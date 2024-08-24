@@ -46,6 +46,9 @@
     <ClCompile Include="thirdparty\imgui\imgui_widgets.cpp">
       <Filter>thirdparty\imgui</Filter>
     </ClCompile>
+    <ClCompile Include="src\base\Graphics.cpp">
+      <Filter>src\base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\base\Window.h">
@@ -105,6 +108,9 @@
     <ClInclude Include="thirdparty\imgui\imstb_truetype.h">
       <Filter>thirdparty\imgui</Filter>
     </ClInclude>
+    <ClInclude Include="src\base\Graphics.h">
+      <Filter>src\base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -124,6 +130,9 @@
     </Filter>
     <Filter Include="thirdparty\imgui">
       <UniqueIdentifier>{67ed7d27-29ba-4106-9c4d-2f81741514f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\render">
+      <UniqueIdentifier>{ce886b36-b37e-46c8-b605-0b0184198db6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
+    <ClCompile Include="src\base\Graphics.cpp" />
     <ClCompile Include="src\base\HookTimer.cpp" />
     <ClCompile Include="src\base\Window.cpp" />
     <ClCompile Include="src\input\Keyboard.cpp" />
@@ -37,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\App.h" />
+    <ClInclude Include="src\base\Graphics.h" />
     <ClInclude Include="src\base\HookTimer.h" />
     <ClInclude Include="src\base\Window.h" />
     <ClInclude Include="src\input\Keyboard.h" />

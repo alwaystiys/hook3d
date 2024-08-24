@@ -99,6 +99,7 @@ Window::Window(int width, int height, LPCTSTR name) : width(width), height(heigh
 	//	OutputDebugString(TEXT("RegisterRawInputDevices FALSE"));
 	//	return;
 	//}
+	pGfx = std::make_unique<Graphics>(hWnd, width, height);
 }
 
 Window::~Window()
@@ -131,6 +132,11 @@ std::optional<int> Window::ProcessMessages() noexcept
 		DispatchMessage(&msg);
 	}
 	return std::nullopt;
+}
+
+Graphics& Window::Gfx()
+{
+	return *pGfx;
 }
 
 LRESULT CALLBACK Window::HandleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept

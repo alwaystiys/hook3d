@@ -4,6 +4,8 @@
 #include "input/Keyboard.h"
 #include "input/Mouse.h"
 #include <optional>
+#include "Graphics.h"
+#include <memory>
 
 class Window {
 
@@ -32,6 +34,7 @@ public:
 	Window& operator=(const Window&) = delete;
 	void SetTitle(const std::string& title);
 	static std::optional<int> ProcessMessages() noexcept;
+	Graphics& Gfx();
 private:
 	static LRESULT CALLBACK HandleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
 	static LRESULT CALLBACK HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept;
@@ -45,4 +48,5 @@ private:
 	int height;
 	std::vector<BYTE> rawBuffer;
 	HWND hWnd;
+	std::unique_ptr<Graphics> pGfx;
 };
