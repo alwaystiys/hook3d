@@ -137,5 +137,16 @@
     <Filter Include="src\render">
       <UniqueIdentifier>{ce886b36-b37e-46c8-b605-0b0184198db6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\shaders">
+      <UniqueIdentifier>{aa44972c-c85d-49c4-9983-e7c56e725b7a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="src\shaders\VertexShader.hlsl">
+      <Filter>src\shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="src\shaders\PixelShader.hlsl">
+      <Filter>src\shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

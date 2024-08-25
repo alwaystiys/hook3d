@@ -168,8 +168,8 @@ LRESULT CALLBACK Window::HandleMsgThunk(HWND hWnd, UINT msg, WPARAM wParam, LPAR
 
 LRESULT Window::HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) noexcept
 {
-	static WindowsMessageMap mm;
-	OutputDebugStringA(mm(msg, lParam, wParam).c_str());
+	//static WindowsMessageMap mm;
+	//OutputDebugStringA(mm(msg, lParam, wParam).c_str());
 
 	//if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
 	//{
