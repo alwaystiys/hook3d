@@ -82,13 +82,25 @@ void Graphics::DrawTestTriangle() {
 	HRESULT hr;
 	struct Vertex
 	{
-		float x;
-		float y;
+		struct
+		{
+			float x;
+			float y;
+		} pos;
+		struct
+		{
+			unsigned char r;
+			unsigned char g;
+			unsigned char b;
+		} color;
 	};
 	const Vertex vertices[] = {
-		{ 0.0f, 0.5f },
-		{ 0.5f, -0.5f },
-		{ -0.5f, -0.5f },
+		//{ 0.0f, 0.5f, 1.0f, 0.0f, 0.0f},
+		//{ 0.5f, -0.5f, 0.0f, 1.0f, 0.0f},
+		//{ -0.5f, -0.5f, 0.0f, 0.0f, 1.0f},
+		{ 0.0f, 0.5f, 255, 0, 0},
+		{ 0.5f, -0.5f, 0, 255, 0},
+		{ -0.5f, -0.5f, 0, 0, 255},
 	};
 
 	ComPtr<ID3D11Buffer> pVertexBuffer;
@@ -121,7 +133,9 @@ void Graphics::DrawTestTriangle() {
 	ComPtr<ID3D11InputLayout> pInputLayout;
 	const D3D11_INPUT_ELEMENT_DESC ied[] = {
 		{"Position", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
+		{"Color", 0, DXGI_FORMAT_R8G8B8A8_UNORM, 0, 8u, D3D11_INPUT_PER_VERTEX_DATA, 0},
 	};
+	//D3D11_APPEND_ALIGNED_ELEMENT
 	hr = pDevice->CreateInputLayout(
 		ied,
 		(UINT)std::size(ied),
@@ -151,7 +165,7 @@ void Graphics::DrawTestTriangle() {
 	// viewport always fullscreen (for now)
 	D3D11_VIEWPORT vp;
 	vp.Width = (float)width;
-	vp.Height = (float)height; 
+	vp.Height = (float)height;
 	vp.MinDepth = 0.0f;
 	vp.MaxDepth = 1.0f;
 	vp.TopLeftX = 0.0f;
