@@ -15,7 +15,7 @@ public:
 	void EndFrame(); 
 	void ClearBuffer(float r, float g, float b) noexcept;
 	void DrawVertexTriangle();
-	void DrawIndexPolygon();
+	void DrawIndexPolygon(float angle);
 private:
 	ComPtr<ID3D11Device> pDevice;
 	ComPtr<IDXGISwapChain> pSwap;

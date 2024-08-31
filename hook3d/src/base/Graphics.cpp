@@ -175,7 +175,7 @@ void Graphics::DrawVertexTriangle() {
 	pContext->Draw((UINT)std::size(vertices), 0u);
 }
 
-void Graphics::DrawIndexPolygon()
+void Graphics::DrawIndexPolygon(float angle)
 {
 	HRESULT hr;
 	struct Vertex
@@ -202,7 +202,7 @@ void Graphics::DrawIndexPolygon()
 		{ -0.5f, -0.5f, 0, 0, 255, 0},
 		{ -0.3f, 0.3f, 0, 255, 0, 0},
 		{ 0.3f, 0.3f, 0, 0, 255, 0},
-		{ 0.0f, -0.8f, 255, 0, 0, 0},
+		{ 0.0f, -1.0f, 255, 0, 0, 0},
 	};
 
 	ComPtr<ID3D11Buffer> pVertexBuffer;
@@ -245,6 +245,36 @@ void Graphics::DrawIndexPolygon()
 	// Bind index buffer to pipeplie
 	pContext->IASetIndexBuffer(pIndexdBuffer.Get(), DXGI_FORMAT_R16_UINT, 0u);
 
+	// Create constant buffer for transformation matrix
+	struct ConstantBuffer
+	{
+		struct {
+			float element[4][4];
+		} transformation;
+	};
+
+	const ConstantBuffer cb = {
+		{
+			((float)height / width) * std::cos(angle), std::sin(angle), 0.0f, 0.0f,
+			((float)height / width) * -std::sin(angle), std::cos(angle), 0.0f, 0.0f,
+			0.0f, 0.0f, 0.0f, 0.0f,
+			0.0f, 0.0f, 0.0f, 1.0f,
+		}
+	};
+	ComPtr<ID3D11Buffer> pConstantBuffer;
+	D3D11_BUFFER_DESC cbd = {};
+	cbd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	cbd.Usage = D3D11_USAGE_DYNAMIC;
+	cbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	cbd.MiscFlags = 0u;
+	cbd.ByteWidth = sizeof(cb);
+	cbd.StructureByteStride = 0u;
+	D3D11_SUBRESOURCE_DATA csd = {};
+	csd.pSysMem = &cb;
+	hr = pDevice->CreateBuffer(&cbd, &csd, &pConstantBuffer);
+
+	// Bind constant buffer to vertex shader
+	pContext->VSSetConstantBuffers(0u, 1u, pConstantBuffer.GetAddressOf());
 
 	// Create vertex shader
 	ComPtr<ID3D11VertexShader> pVertexShader;
@@ -290,8 +320,8 @@ void Graphics::DrawIndexPolygon()
 
 	// viewport always fullscreen (for now)
 	D3D11_VIEWPORT vp;
-	vp.Width = (float)width / 2;
-	vp.Height = (float)height / 2;
+	vp.Width = (float)width;
+	vp.Height = (float)height;
 	vp.MinDepth = 0.0f;
 	vp.MaxDepth = 1.0f;
 	vp.TopLeftX = 0.0f;
