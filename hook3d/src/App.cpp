@@ -1,7 +1,8 @@
 #include "App.h"
 #include <sstream>
+#include <iostream>
 
-App::App() : wnd(800, 600, TEXT("Hook 3D"))
+App::App() : wnd(1600, 1200, TEXT("Hook 3D"))
 {
 }
 
@@ -76,8 +77,16 @@ void App::DoFrame()
 
 	const float c = sin(timer.Peek()) / 2.0f + 0.5f;
 	wnd.Gfx().ClearBuffer(c, c, 1.0f);
+
+	std::ostringstream oss2;
+	oss2 << wnd.mouse.GetPosY() << " " << wnd.mouse.GetPosY() / 600.0f << std::endl;
 	//wnd.Gfx().DrawVertexTriangle();
-	wnd.Gfx().DrawIndexPolygon(t);
+	OutputDebugStringA(oss2.str().c_str());
+	//std::cout << wnd.mouse.GetPosX() << " " << wnd.mouse.GetPosX() / 800.0f << std::endl;
+	//wnd.Gfx().DrawIndexPolygon(t, wnd.mouse.GetPosX() / 800.0f * 2.f - 1.0f, -(wnd.mouse.GetPosY() / 600.0f * 2.f - 1.0f));
+	//wnd.Gfx().Draw3DCube(t, wnd.mouse.GetPosX() / 800.0f * 2.f - 1.0f, -(wnd.mouse.GetPosY() / 600.0f * 2.f - 1.0f));
+	wnd.Gfx().Draw3DPureCube(-t, 0.0f, 0.0f);
+	wnd.Gfx().Draw3DPureCube(t, wnd.mouse.GetPosX() / 800.0f * 2.f - 1.0f, -(wnd.mouse.GetPosY() / 600.0f * 2.f - 1.0f));
 	wnd.Gfx().EndFrame();
 
 }

@@ -148,5 +148,17 @@
     <FxCompile Include="src\shaders\PixelShader.hlsl">
       <Filter>src\shaders</Filter>
     </FxCompile>
+    <FxCompile Include="src\shaders\CubeVertexShader.hlsl">
+      <Filter>src\shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="src\shaders\CubePixelShader.hlsl">
+      <Filter>src\shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="src\shaders\PureCubePixelShader.hlsl">
+      <Filter>src\shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="src\shaders\PureCubeVertexShader.hlsl">
+      <Filter>src\shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
