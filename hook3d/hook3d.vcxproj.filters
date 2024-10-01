@@ -49,6 +49,21 @@
     <ClCompile Include="src\base\Graphics.cpp">
       <Filter>src\base</Filter>
     </ClCompile>
+    <ClCompile Include="src\render\GraphicsResource.cpp">
+      <Filter>src\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\bindable\IndexBuffer.cpp">
+      <Filter>src\render\bindable</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\bindable\InputLayout.cpp">
+      <Filter>src\render\bindable</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\bindable\VertexBuffer.cpp">
+      <Filter>src\render\bindable</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\bindable\ConstantBuffer.cpp">
+      <Filter>src\render\bindable</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\base\Window.h">
@@ -114,6 +129,24 @@
     <ClInclude Include="src\utils\WrhConfig.h">
       <Filter>src\utils</Filter>
     </ClInclude>
+    <ClInclude Include="src\render\bindable\Bindable.h">
+      <Filter>src\render\bindable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\GraphicsResource.h">
+      <Filter>src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\bindable\VertexBuffer.h">
+      <Filter>src\render\bindable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\bindable\IndexBuffer.h">
+      <Filter>src\render\bindable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\bindable\InputLayout.h">
+      <Filter>src\render\bindable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\render\bindable\ConstantBuffer.h">
+      <Filter>src\render\bindable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -139,6 +172,15 @@
     </Filter>
     <Filter Include="src\shaders">
       <UniqueIdentifier>{aa44972c-c85d-49c4-9983-e7c56e725b7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\render\bindable">
+      <UniqueIdentifier>{2e4b077e-9c7d-49d5-b72f-32ec2eab2972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\render\drawable">
+      <UniqueIdentifier>{4cf9954b-0dd6-43ec-8d2c-bbe216513114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\render\geometry">
+      <UniqueIdentifier>{1eb97a12-96ed-4987-9b07-5d461fdacb34}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

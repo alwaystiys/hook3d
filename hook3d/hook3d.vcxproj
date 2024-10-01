@@ -25,6 +25,11 @@
     <ClCompile Include="src\base\Window.cpp" />
     <ClCompile Include="src\input\Keyboard.cpp" />
     <ClCompile Include="src\input\Mouse.cpp" />
+    <ClCompile Include="src\render\bindable\ConstantBuffer.cpp" />
+    <ClCompile Include="src\render\bindable\IndexBuffer.cpp" />
+    <ClCompile Include="src\render\bindable\InputLayout.cpp" />
+    <ClCompile Include="src\render\bindable\VertexBuffer.cpp" />
+    <ClCompile Include="src\render\GraphicsResource.cpp" />
     <ClCompile Include="src\utils\HookException.cpp" />
     <ClCompile Include="src\utils\WindowsMessageMap.cpp" />
     <ClCompile Include="src\WinMain.cpp" />
@@ -43,6 +48,12 @@
     <ClInclude Include="src\base\Window.h" />
     <ClInclude Include="src\input\Keyboard.h" />
     <ClInclude Include="src\input\Mouse.h" />
+    <ClInclude Include="src\render\bindable\Bindable.h" />
+    <ClInclude Include="src\render\bindable\ConstantBuffer.h" />
+    <ClInclude Include="src\render\bindable\IndexBuffer.h" />
+    <ClInclude Include="src\render\bindable\InputLayout.h" />
+    <ClInclude Include="src\render\bindable\VertexBuffer.h" />
+    <ClInclude Include="src\render\GraphicsResource.h" />
     <ClInclude Include="src\utils\HookException.h" />
     <ClInclude Include="src\utils\resource.h" />
     <ClInclude Include="src\utils\SdkConfig.h" />

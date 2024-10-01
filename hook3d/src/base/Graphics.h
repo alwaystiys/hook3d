@@ -2,11 +2,13 @@
 #include "utils/SdkConfig.h"
 #include "utils/WrhConfig.h"
 #include <d3d11.h>
+#include <vector>
 
 using Microsoft::WRL::ComPtr;
 
 class Graphics
 {
+	friend class GraphicsResource;
 public:
 	Graphics(HWND hWnd, int width, int height);
 	Graphics(const Graphics&) = delete;
@@ -18,6 +20,10 @@ public:
 	void DrawIndexPolygon(float angle, float x, float y);
 	void Draw3DCube(float angle, float x, float y);
 	void Draw3DPureCube(float angle, float x, float z);
+
+
+	
+
 private:
 	ComPtr<ID3D11Device> pDevice;
 	ComPtr<IDXGISwapChain> pSwap;
